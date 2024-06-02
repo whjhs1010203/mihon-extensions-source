@@ -167,7 +167,7 @@ class Happymh : HttpSource(), ConfigurableSource {
         val header = headersBuilder()
             .set("Referer", "$baseUrl/")
             .build()
-        return GET(page.imageUrl!!, header)
+        return GET(page.imageUrl!!.substringBefore('?'), header)
     }
 
     override fun setupPreferenceScreen(screen: PreferenceScreen) {
